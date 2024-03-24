@@ -72,6 +72,7 @@ def edit():
   return '{"Result":"Success"}'
 
   @app.route("/delete", methods=['GET', 'POST']) #Delete Student
+  
 def delete():
   if request.method == 'POST':
     studentID = request.form['studentID']
