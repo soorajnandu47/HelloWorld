@@ -71,20 +71,6 @@ def edit():
 
   return '{"Result":"Success"}'
 
-@app.route("/delete", methods=['GET', 'POST']) #Delete Student
-def delete():
-  if request.method == 'POST':
-    studentID = request.form['studentID']
-    print(studentID)
-    cur = mysql.cursor() #create a connection to the SQL instance
-    s='''DELETE FROM students WHERE studentID = {};'''.format(studentID)
-    app.logger.info(s)
-    cur.execute(s)
-    mysql.commit()
-  else:
-    return render_template('delete.html')
-
-  return '{"Result":"Success"}'
 
 @app.route("/") #Default - Show Data
 def hello(): # Name of the method
